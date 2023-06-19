@@ -14,7 +14,11 @@ module.exports = {
       },
       colors: {
         'primary':'#6D61F2',
-      }
+      },
+      fontFamily: {
+        'poppins':['Poppins'],
+        'piazolla':['Piazolla']
+      },
     },
   },
   plugins: [],
