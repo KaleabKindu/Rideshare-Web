@@ -5,7 +5,7 @@ import Step from "./Step";
 import steps from "@/data/landing-page/steps.json";
 import mobileImage from "../../../public/images/landing-page/mobile-image.png";
 
-const HowItWorks = () => {
+const HowItWorks: React.FC= () => {
   return (
     <div>
       <h1 className="text-5xl mb-10 font-semibold">
