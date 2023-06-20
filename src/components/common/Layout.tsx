@@ -11,7 +11,7 @@ const Layout = ({children}: LayoutProps) => {
   return (
     <>
         <Header />
-        <div className='pt-16 h-screen'>
+        <div className='pt-24 h-screen'>
             {children}
         </div>
         <Footer />

@@ -12,7 +12,7 @@ type NavBarProps = {
 
 const NavBar = ({activeRoute, handleNavigation, routes}:NavBarProps) => {    
   return (
-    <div test-id='navbar' className='fixed hidden md:block w-full'>
+    <div test-id='navbar' className='fixed hidden md:block w-full bg-white'>
         <div className='flex max-w-7xl mx-auto p-2'>
             <Image className='px-5 py-3' src='/images/logo.svg' width={200} height={200} alt='' />
             <div className='hidden md:flex gap-5 ml-auto'>
@@ -45,7 +45,7 @@ type MobileNavBarProps = {
 const MobileNavBar = ({activeRoute, handleNavigation, routes}:MobileNavBarProps) => {
     const [showMenu, setShowMenu] = useState(false)
   return (
-    <div test-id='mobile-navbar' className='fixed block md:hidden'> 
+    <div test-id='mobile-navbar' className='fixed block md:hidden bg-white'> 
         <div className='flex'>
             <button className='p-5' onClick={() => setShowMenu(true)}>
                 <GiHamburgerMenu size={50} />
