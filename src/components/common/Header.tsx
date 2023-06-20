@@ -45,7 +45,7 @@ type MobileNavBarProps = {
 const MobileNavBar = ({activeRoute, handleNavigation, routes}:MobileNavBarProps) => {
     const [showMenu, setShowMenu] = useState(false)
   return (
-    <div test-id='mobile-navbar' className='fixed block md:hidden bg-white'> 
+    <div test-id='mobile-navbar' className='fixed block md:hidden bg-white w-full'> 
         <div className='flex'>
             <button className='p-5' onClick={() => setShowMenu(true)}>
                 <GiHamburgerMenu size={50} />
