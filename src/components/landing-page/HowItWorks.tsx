@@ -7,8 +7,8 @@ import mobileImage from "../../../public/images/landing-page/mobile-image.png";
 
 const HowItWorks: React.FC= () => {
   return (
-    <div>
-      <h1 className="text-5xl mb-10 font-semibold">
+    <div className="font-poppins">
+      <h1 className="font-piazolla text-5xl mb-10 font-semibold">
         How Ride<span className="text-primary">Share</span> Works
       </h1>
 
