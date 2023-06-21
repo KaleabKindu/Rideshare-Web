@@ -3,21 +3,19 @@ import data from "@/data/landing-page/about.json";
 
 const About: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 data-cy="title" className="text-3xl m-5 font-bold w-full md:w-1/2 text-center md:text-left">Who are we?</h1>
+    <section id="about" className="flex flex-col items-center justify-center pt-16">
+      <h1 data-cy="title" className="text-3xl m-5 font-bold w-full md:w-1/2 text-center">Who are we?</h1>
       {/* image and about section  */}
       <div className="flex flex-col md:flex-row gap-5 md:gap-20 mb-10 mx-12 my-12">
-        <div className="w-full md:w-1/3 flex justify-center md:justify-end">
-          <Image
-            src="/images/landing-page/about.png"
-            alt="image"
-            width = {400}
-            height= {700}
-            data-cy = "about-image"
-          />
-        </div>
-        <div className="w-full md:w-2/3 mt-10 md:mt-35 lg:mt-40">
-          <p data-cy="about-text" className="pr-0 md:pr-20 lg:pr-72 text-xl">{data.about}</p>
+        <Image
+          src="/images/landing-page/about.png"
+          alt="image"
+          width = {500}
+          height= {700}
+          data-cy = "about-image"
+        />
+        <div className="mt-10 md:mt-35 lg:mt-40">
+          <p data-cy="about-text" className="text-xl max-w-md">{data.about}</p>
         </div>
       </div>
       {/* vision and mission section */}
@@ -31,7 +29,7 @@ const About: React.FC = () => {
           <p data-cy="mission-description" className="pr-0 lg:pr-20 text-xl">{data.mission}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

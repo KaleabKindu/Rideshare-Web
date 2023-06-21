@@ -3,11 +3,10 @@ import Image from "next/image";
 
 import Step from "./Step";
 import steps from "@/data/landing-page/steps.json";
-import mobileImage from "../../../public/images/landing-page/mobile-image.png";
 
 const HowItWorks: React.FC= () => {
   return (
-    <div className="font-{poppins} mt-20">
+    <section id="howitworks" className="font-{poppins} mt-20 pt-16">
       <h1 className="text-5xl mb-10 font-semibold text-center">
         How Ride<span className="text-primary">Share</span> Works
       </h1>
@@ -41,7 +40,7 @@ const HowItWorks: React.FC= () => {
           data-testid="mobile_image"
         >
           <Image
-            src={mobileImage}
+            src='/images/landing-page/mobile-image.png'
             alt="a mobile app UI for rideshare application"
             className="aspect-auto"
             width={300}
@@ -65,7 +64,7 @@ const HowItWorks: React.FC= () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
