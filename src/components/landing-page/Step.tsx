@@ -8,7 +8,7 @@ interface StepProp {
 
 const Step: React.FC<StepProp> = ({ step_number, title, description }) => {
   return (
-    <div>
+    <>
       <div
         className={`w-12 h-12 rounded-full border-4 border-blue-500 flex items-center justify-center text-primary ${
           step_number <= 2 ? "ml-40 sm:ml-auto" : "ml-40 sm:ml-0"
@@ -18,7 +18,7 @@ const Step: React.FC<StepProp> = ({ step_number, title, description }) => {
       </div>
 
       <h1
-        className={`text-center mt-5 sm:mt-0 ${
+        className={`font-{poppins} text-center mt-5 sm:mt-3 ${
           step_number <= 2
             ? "text-center md:text-end"
             : "text-center md:text-start"
@@ -27,7 +27,7 @@ const Step: React.FC<StepProp> = ({ step_number, title, description }) => {
         {title}
       </h1>
       <p
-        className={`px-4 sm:px-0 mb-10 sm:mb-10 text-center${
+        className={`max-w-xs sm:max-w-sm md:max-w-md sm:mx-auto md:mx-auto mt-6 sm:mt-3 font-{poppins} sm:px-0 mb-10 sm:mb-10 text-center${
           step_number <= 2
             ? "text-center sm:text-end"
             : "text-center sm:text-start"
@@ -35,7 +35,7 @@ const Step: React.FC<StepProp> = ({ step_number, title, description }) => {
       >
         {description}
       </p>
-    </div>
+    </>
   );
 };
 
