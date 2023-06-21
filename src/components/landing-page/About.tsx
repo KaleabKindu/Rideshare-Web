@@ -23,11 +23,11 @@ const About: React.FC = () => {
       {/* vision and mission section */}
       <div className="flex flex-col md:flex-row gap-12 mx-12 mb-20">
         <div className="w-full md:w-1/2 px-8">
-          <h1 data-cy="vision-text" className="text-2xl mb-4 font-bold text-center md:text-left pl-0 md:pl-20 lg:pl-40">Vision</h1>
+          <h1 data-cy="vision-text" className="text-2xl text-primary mb-4 font-bold text-center md:text-left pl-0 md:pl-20 lg:pl-40">Vision</h1>
           <p data-cy="vision-description" className="pr-0 lg:pr-20 text-xl">{data.vision}</p>
         </div>
         <div className="w-full md:w-1/2 px-8">
-          <h1 data-cy="mission-text" className="text-2xl mb-4 font-bold text-center md:text-left pl-0 md:pl-20 lg:pl-40">Mission</h1>
+          <h1 data-cy="mission-text" className="text-2xl text-primary mb-4 font-bold text-center md:text-left pl-0 md:pl-20 lg:pl-40">Mission</h1>
           <p data-cy="mission-description" className="pr-0 lg:pr-20 text-xl">{data.mission}</p>
         </div>
       </div>
