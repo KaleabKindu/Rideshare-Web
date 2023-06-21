@@ -1,0 +1,20 @@
+[
+    {
+        "imageURL": "flexible-time.png",
+        "count": "01.",
+        "heading": "Flexible Time",
+        "paragraph": "Offer drivers the flexibility to choose their own schedule and work as much"
+    },
+    {
+        "imageURL": "earnings.png",
+        "count": "02.",
+        "heading": "Earnings",
+        "paragraph": "Drivers can earn more money by driving for a ride-sharing app"
+    },
+    {
+        "imageURL": "availability.png",
+        "count": "03.",
+        "heading": "Availability",
+        "paragraph": "Make it easy for customers to quickly and easily find a ride to their destination"
+    }
+]

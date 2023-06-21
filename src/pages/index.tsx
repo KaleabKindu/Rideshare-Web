@@ -2,6 +2,8 @@ import About from "@/components/landing-page/About";
 import HeroSection from "@/components/landing-page/HeroSection";
 import HowItWorks from "@/components/landing-page/HowItWorks";
 import Head from "next/head";
+import React from "react";
+import BenefitsSection from "@/components/landing-page/benefits-section/BenefitsSection";
 
 export default function Home() {
   return (
@@ -13,8 +15,8 @@ export default function Home() {
         <HeroSection />
         <HowItWorks />
         <About />
+        <BenefitsSection />
       </div>
     </>
-
   );
 }
