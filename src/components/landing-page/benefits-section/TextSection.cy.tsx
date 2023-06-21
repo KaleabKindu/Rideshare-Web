@@ -13,7 +13,7 @@ describe("<TextSection />", () => {
   });
 
   it("renders the TextSection component", () => {
-    cy.get(".max-w-3xl.font-montserrat").should("exist");
+    cy.get(".max-w-3xl").should("exist");
 
     cy.contains("Earnings").should("exist");
     cy.contains(

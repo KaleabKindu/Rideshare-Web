@@ -8,8 +8,8 @@ const BenefitsImage: React.FC<BenefitsImageProps> = ({ image }) => {
   return (
     <div className="relative inline-block  " data-testid="image">
       <Image
-        width={302}
-        height={352}
+        width={352}
+        height={362}
         className="aspect-auto"
         src={`/images/landing-page/benefits/${image}`}
         alt="image"
