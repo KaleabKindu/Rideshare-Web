@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         'poppins':['Poppins'],
-        'piazolla':['Piazolla']
+        'piazzolla':['Piazzolla']
       },
     },
   },

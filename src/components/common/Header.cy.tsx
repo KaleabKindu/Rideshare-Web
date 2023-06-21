@@ -1,9 +1,15 @@
 import React from 'react'
 import Header from './Header'
+import { Provider } from 'react-redux'
+import { store } from '@/store/store'
 
 describe('<Header />', () => {
   beforeEach(() => {
-    cy.mount(<Header />)  
+    cy.mount(
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    )  
   })
   
   it('should render the logo', () => {
@@ -30,10 +36,8 @@ describe('<Header />', () => {
   })
 
   it('should navigate to the selected route for small screens', () => {
-    cy.get('div[test-id="mobile-navbar"] button').click()
+    cy.get('button[test-id="open-menu"]').click()
     cy.get('div[test-id="mobile-navbar"] a').contains('Benefits').click()
     cy.url().should('include', '#benefits')
-    cy.get('div[test-id="mobile-navbar"] a').contains('About').click()
-    cy.url().should('include', '#about')
   })
 })

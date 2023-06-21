@@ -1,12 +1,17 @@
 import React from 'react'
 import Layout from './Layout'
+import { Provider } from 'react-redux'
+import { store } from '@/store/store'
 
 describe('<Layout />', () => {
   beforeEach(() => {
     cy.mount(
-    <Layout> 
-      <div>Test</div>
-    </Layout>)
+      <Provider store={store}>
+        <Layout> 
+          <div>Test</div>
+        </Layout>
+      </Provider>
+    )
   })
   it('checks', ()=>{
     // Assert NavBar is rendered

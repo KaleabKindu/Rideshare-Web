@@ -8,7 +8,7 @@ describe('HowItWorks', () => {
 
   it('Asserts that the How it Works component is rendered correctly', () => {
     cy.get('h1').should('contain', 'How RideShare Works')
-    cy.get('p').should('contain', 'Download and install the Ride Share app. Enter the required fields and create  your user account. when approved you may start using or providing a service.')
+    cy.get('p').should('contain', 'Download and install the Ride Share app. Enter the required fields and create your user account. when approved you may start using or providing a service.')
   })
   
 

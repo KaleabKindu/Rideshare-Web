@@ -3,16 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdClose } from 'react-icons/md'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setActiveRoute } from '@/store/navigation/navigation'
 
 type NavBarProps = {
-    activeRoute:string,
     handleNavigation: (a:string) => void,
     routes:{name:string, to:string}[]
 }
 
-const NavBar = ({activeRoute, handleNavigation, routes}:NavBarProps) => {    
+const NavBar = ({ handleNavigation, routes}:NavBarProps) => {    
+    const activeRoute = useAppSelector(state => state.navigation.activeRoute)
   return (
-    <div test-id='navbar' className='fixed hidden md:block w-full bg-white'>
+    <div test-id='navbar' className='fixed hidden md:block w-full bg-white z-30'>
         <div className='flex max-w-7xl mx-auto p-2'>
             <Image className='px-5 py-3' src='/images/logo.svg' width={200} height={200} alt='' />
             <div className='hidden md:flex gap-5 ml-auto'>
@@ -37,17 +39,17 @@ const NavBar = ({activeRoute, handleNavigation, routes}:NavBarProps) => {
 
 
 type MobileNavBarProps = {
-    activeRoute:string,
     handleNavigation: (a:string) => void,
     routes:{name:string, to:string}[]
 }
 
-const MobileNavBar = ({activeRoute, handleNavigation, routes}:MobileNavBarProps) => {
+const MobileNavBar = ({ handleNavigation, routes}:MobileNavBarProps) => {
     const [showMenu, setShowMenu] = useState(false)
+    const activeRoute = useAppSelector(state => state.navigation.activeRoute)
   return (
-    <div test-id='mobile-navbar' className='fixed block md:hidden bg-white w-full'> 
+    <div test-id='mobile-navbar' className='fixed block md:hidden bg-white w-full z-30'> 
         <div className='flex'>
-            <button className='p-5' onClick={() => setShowMenu(true)}>
+            <button test-id='open-menu' className='p-5' onClick={() => setShowMenu(true)}>
                 <GiHamburgerMenu size={50} />
             </button>
             <Image className='px-5 py-3' src='/images/logo.svg' width={200} height={200} alt='' />
@@ -58,11 +60,12 @@ const MobileNavBar = ({activeRoute, handleNavigation, routes}:MobileNavBarProps)
                 </button>
                 {
                     routes.map((route, index) => (
-                        <div key={index} className={`font-bold p-2 ${activeRoute === route.to && 'bg-primary bg-opacity-20'}`}>
-                            <Link href={route.to} onClick={() => handleNavigation(route.to)}>
-                                {route.name}
-                            </Link>
-                        </div>
+                        <Link key={index} className={`block font-bold p-2 ${activeRoute === route.to && 'bg-primary bg-opacity-20'}`} href={route.to} onClick={() =>{
+                                handleNavigation(route.to)
+                                setShowMenu(false)
+                                }}>
+                            {route.name}
+                        </Link>
                         
                     ))
                 }
@@ -78,15 +81,11 @@ const MobileNavBar = ({activeRoute, handleNavigation, routes}:MobileNavBarProps)
 type Props = {}
 
 const Header = (props: Props) => {
-    const [activeRoute, setActiveRoute] = useState<string>('#home')
+    const dispatch = useAppDispatch()
     const routes:{name:string, to:string}[] = [
         {
             name:'Home',
             to:'#home'
-        },
-        {
-            name:'Benefits',
-            to:'#benefits'
         },
         {
             name:'How It Works',
@@ -95,16 +94,20 @@ const Header = (props: Props) => {
         {
             name:'About',
             to:'#about'
+        },
+        {
+            name:'Benefits',
+            to:'#benefits'
         }
     ]
 
     const handleNavigation  = (to: string) => {
-        setActiveRoute(to)
+        dispatch(setActiveRoute(to))
     }
   return (
     <>
-      <NavBar routes={routes} activeRoute={activeRoute} handleNavigation={handleNavigation}  /> 
-      <MobileNavBar routes={routes} activeRoute={activeRoute} handleNavigation={handleNavigation}  /> 
+      <NavBar routes={routes} handleNavigation={handleNavigation}  /> 
+      <MobileNavBar routes={routes} handleNavigation={handleNavigation}  /> 
     </>
     
   )
