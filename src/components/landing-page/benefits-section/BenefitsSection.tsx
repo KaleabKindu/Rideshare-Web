@@ -18,7 +18,7 @@ const BenefitsSection: React.FC = () => {
               index % 2 === 1 ? "md:flex-row-reverse" : ""
             }`}
           >
-            <div className="md:max-w-xs ">
+            <div className="md:max-w-lg ">
               <TextSection
                 count={data.count}
                 heading={data.heading}

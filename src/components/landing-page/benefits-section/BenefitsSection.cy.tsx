@@ -10,8 +10,8 @@ describe("<BenefitsSection />", () => {
 
     cy.get(".flex.flex-col").should("have.length", 4);
 
-    cy.get(".text-2xl.font-semibold").should("exist");
-    cy.get(".italic.text-sm").should("exist");
+    cy.get(".text-3xl.font-bold").should("exist");
+    cy.get(".text-lg").should("exist");
 
     cy.get("[data-testid='image']").should("exist");
   });

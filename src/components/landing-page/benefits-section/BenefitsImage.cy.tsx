@@ -10,7 +10,7 @@ describe("<BenefitsImage />", () => {
     cy.get('img[alt="image"]').should("exist").and("have.attr", "src");
 
     cy.get('img[alt="image"]')
-      .should("have.attr", "width", "302")
-      .and("have.attr", "height", "352");
+      .should("have.attr", "width", "352")
+      .and("have.attr", "height", "362");
   });
 });
