@@ -7,19 +7,19 @@ import mobileImage from "../../../public/images/landing-page/mobile-image.png";
 
 const HowItWorks: React.FC= () => {
   return (
-    <div className="font-poppins">
-      <h1 className="font-piazolla text-5xl mb-10 font-semibold">
+    <div className="font-{poppins} mt-20">
+      <h1 className="text-5xl mb-10 font-semibold text-center">
         How Ride<span className="text-primary">Share</span> Works
       </h1>
 
-      <p className="px-3 text-xl mb-10 text-center">
+      <p className="text-xl mb-10 text-center max-w-xs sm:max-w-sm md:max-w-md mx-auto font-{poppins}">
         Download and install the Ride Share app. Enter the required fields and
         create your user account. when approved you may start using or providing
         a service.
       </p>
 
-      <div className="grid auto-rows-max sm:grid-cols-3 justify-items-center sm:justify-items-center">
-        <div className="order-2 sm:order-1" data-testid="step_1">
+      <div className="mt-14 grid gap-7 auto-rows-max sm:grid-cols-3 justify-items-center sm:justify-items-center">
+        <div className="pl-4 order-2 sm:order-1" data-testid="step_1">
           {steps.map((step) => {
             const isEven = step.step_number <= 2;
 
@@ -48,7 +48,7 @@ const HowItWorks: React.FC= () => {
             height={430}
           />
         </div>
-        <div className="order-3 " data-testid="step_2">
+        <div className="pr-4 order-3 " data-testid="step_2">
           {steps.map((step) => {
             const isEven = step.step_number > 2;
             const item = isEven ? (
