@@ -13,7 +13,7 @@ const TextSection: React.FC<TextSectionProps> = ({
 }) => {
   return (
     <div className="m-8 max-w-3xl ">
-      <h2 className="text-3xl font-bold mb-4 mt-2 text-{piazzolla} ">
+      <h2 className="text-3xl font-bold mb-4 mt-2 font-piazzolla">
         <span className="text-primary">{count}</span>
         {heading}
       </h2>
