@@ -6,8 +6,9 @@ import React, { useEffect, useState } from "react";
 import BenefitsSection from "@/components/landing-page/benefits-section/BenefitsSection";
 import { useAppDispatch } from "@/store/hooks";
 import { setActiveRoute } from "@/store/navigation/navigation";
+import withLayout from "@/components/common/withLayout";
 
-export default function Home() {
+export const Home = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     const handleScroll = () => {
@@ -49,3 +50,5 @@ export default function Home() {
     </>
   );
 }
+
+export default withLayout(Home)
