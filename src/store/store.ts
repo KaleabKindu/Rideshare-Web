@@ -1,11 +1,15 @@
 
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { navigationSlice } from './navigation/navigation'
+import { apiSlice } from './api'
 
 export const store = configureStore({
   reducer: {
-    [navigationSlice.name]:navigationSlice.reducer
+    [navigationSlice.name]:navigationSlice.reducer,
+    [apiSlice.reducerPath]:apiSlice.reducer
    },
+   middleware: (getDefaultMiddleware) => 
+      getDefaultMiddleware().concat(apiSlice.middleware)
 
 })
 
