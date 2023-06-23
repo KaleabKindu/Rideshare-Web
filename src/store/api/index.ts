@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RootState } from '../store'
+import { Credentials, LoginResponse } from '@/types/auth'
 
 
 export const apiSlice = createApi({
@@ -7,8 +8,7 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl:'https://rideshare-app.onrender.com/api/',
         prepareHeaders:(headers, { getState }) => {
-            // Get The JWT token from store
-            const token = (getState() as RootState)
+            const token = (getState() as RootState).auth.accessToken
             if (token){
                 headers.set('Authorization', `Bearer ${token}`)
             }
@@ -16,7 +16,7 @@ export const apiSlice = createApi({
         }
     }),
     endpoints: (builder) => ({
-        adminLogin: builder.mutation({
+        adminLogin: builder.mutation<LoginResponse, Credentials>({
             query: (credentials) => ({
               url: 'User/admin/login',
               method: 'POST',
