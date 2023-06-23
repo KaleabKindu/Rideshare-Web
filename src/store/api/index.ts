@@ -16,9 +16,15 @@ export const apiSlice = createApi({
         }
     }),
     endpoints: (builder) => ({
-       
+        adminLogin: builder.mutation({
+            query: (credentials) => ({
+              url: 'User/admin/login',
+              method: 'POST',
+              body: credentials,
+            }),
+          }),
     }),
 })
 
 
-export const { } = apiSlice
+export const { useAdminLoginMutation } = apiSlice
