@@ -8,38 +8,44 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAdminLoginMutation } from "@/store/api/index";
 import router from "next/router";
+import { useAppDispatch } from "@/store/hooks";
+import { setAccessToken } from "@/store/auth/authSlice";
+import Head from "next/head";
+import { ClipLoader } from "react-spinners";
 
 const Login: React.FC = () => {
+  const [adminLogin, { isLoading }] = useAdminLoginMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const dispatch = useAppDispatch()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const [adminLogin, { data, isLoading }] = useAdminLoginMutation();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      await adminLogin({
+      const response = await adminLogin({
         username: username,
         password: password
       }).unwrap();
-      // Handle successful login
-      toast.success('Successfully logged in!');
-      router.push("/dashboard");
+      dispatch(setAccessToken(response.value))
+      router.push("/admin/dashboard");
     } catch (error) {
-      // Handle login error
       toast.error('Invalid username or password');
     }
   };
 
   return (
     <div className="flex items-center justify-center bg-gray-100">
-      <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-xl m-12">
+      <Head>
+        <title>Login</title>
+      </Head>
+      <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-xl">
         {/* Top Section for mobile device only */}
         <div className="w-full md:hidden">
           <Image
@@ -56,7 +62,7 @@ const Login: React.FC = () => {
             <h1 className="text-3xl font-bold mb-1">Login to your account</h1>
             <p className="text-gray-400 mb-12">Welcome back!</p>
           </div>
-          <form onSubmit={handleLogin}>
+          <form className="w-full md:w-[70%]" onSubmit={handleLogin}>
             <div className="relative mb-4">
               <input
                 type="text"
@@ -98,7 +104,7 @@ const Login: React.FC = () => {
               className="bg-primary text-white py-2 px-8 rounded-lg transition-colors w-full"
               disabled={isLoading}
             >
-              {isLoading ? 'Logging in...' : 'Login'}
+              {isLoading ? <ClipLoader size={20} color="white" /> : 'Login'}
             </button>
           </form>
         </div>
