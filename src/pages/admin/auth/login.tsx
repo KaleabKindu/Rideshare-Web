@@ -29,7 +29,6 @@ const Login: React.FC = () => {
         password: password
       }).unwrap();
       // Handle successful login
-      console.log(data)
       toast.success('Successfully logged in!');
       router.push("/dashboard");
     } catch (error) {
