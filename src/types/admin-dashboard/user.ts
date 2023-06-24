@@ -3,11 +3,11 @@ export type User = {
     Fullname: string;
     Email: string;
     Password:string  
-    Gender: Gender
+    Gender: string
     Age: number
     PhoneNumber: string
     ProfilePicture: string
-    role: Role
+    role: string
 }
 
 export enum Gender {Male, Female};

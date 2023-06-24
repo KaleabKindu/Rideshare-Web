@@ -2,13 +2,14 @@ import { User } from "./user"
 
 export type RideRequest = {
     RideRequestID: number 
-    Commuter: User 
-    Origin: Point
-    Destination: Point
+    name:string
+    Commuter: string 
+    Origin: string
+    Destination: string
     CurrentFare: number
-    Status: Status
+    Status: string
     NumberOfSeats: number
-    CreatedDateTime: Date
+    CreatedDateTime: string
 }
 
 
@@ -17,4 +18,4 @@ export type Point = {
     y: number;
 }
 
-export enum Status {onroute, pending}
+export enum Status {onroute, waiting, completed, canceled}

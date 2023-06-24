@@ -1,0 +1,380 @@
+[
+    {
+        "RideRequestID": 1,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 1,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "completed",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 2,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 2,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "completed",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 3,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 3,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "completed",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 4,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 4,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "canceled",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 5,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 5,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 6,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 6,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "waiting",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 7,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 7,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "waiting",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 8,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 8,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "canceled",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 9,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 9,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "completed",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 10,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 10,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      }, 
+      {
+        "RideRequestID": 11,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 11,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 12,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 12,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 13,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 13,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 14,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 14,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 15,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 15,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 16,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 16,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 17,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 17,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      },
+      {
+        "RideRequestID": 18,
+        "name": "John Doe",
+        "Commuter": {
+          "UserID": 18,
+          "Fullname": "John Doe",
+          "Email": "johndoe@example.com",
+          "Password": "password123",
+          "Gender": "Male",
+          "Age": 30,
+          "PhoneNumber": "1234567890",
+          "ProfilePicture": "profile.jpg",
+          "role": "commuter"
+        },
+        "Origin": "Bole",
+        "Destination": "Arada",
+        "CurrentFare": 10,
+        "Status": "onroute",
+        "NumberOfSeats": 1,
+        "CreatedDateTime": "6/23/2023"
+      }
+]
