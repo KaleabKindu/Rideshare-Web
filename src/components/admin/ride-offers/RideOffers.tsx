@@ -98,7 +98,7 @@ const final = () => {
 
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                   {offers.map((offer, index) => (
-                    <tr>
+                    <tr key={index}>
                       <td className="px-3 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                         <h2 className="font-medium text-gray-800 dark:text-white">
                           {offer.Driver_Name}
