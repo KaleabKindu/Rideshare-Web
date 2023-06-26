@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RootState } from '../store'
 import { Credentials, LoginResponse } from '@/types/auth'
+import { RideRequest } from '@/types/admin/ride-request'
 
 
 export const apiSlice = createApi({
@@ -22,7 +23,21 @@ export const apiSlice = createApi({
               method: 'POST',
               body: credentials,
             }),
+
+            
           }),
+          getAllRideRequests: builder.query<RideRequest[], void>({
+            query: () => '/ride-requests',
+          }), 
+      
+        searchRequestsByName: builder.query<RideRequest[], string>({
+              query: (name:string) => `/ride-requests?name=${name}`,
+            }),
+        filterByStatus: builder.query<RideRequest[], string>({
+              query: (Status:string) => `/ride-requests?Status=${Status}`,
+            }),
+
+
     }),
 })
 

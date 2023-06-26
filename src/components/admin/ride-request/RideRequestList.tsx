@@ -12,11 +12,11 @@ const options = [
 ];
 
 const RideRequestList = () => {
-  const {
-    data: ride_requests = [],
-    isLoading,
-    error,
-  } = useGetAllRideRequestsQuery();
+  // const {
+  //   data: ride_requests = [],
+  //   isLoading,
+  //   error,
+  // } = useGetAllRideRequestsQuery();
 
   const handleSelect = (value: string) => {
     console.log("Selected value:", value);
@@ -110,16 +110,8 @@ const RideRequestList = () => {
               </thead>
 
               <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                {ride_requests.map((request) => (
-                  <RideRequestItem
-                    name={request.name}
-                    origin={request.Origin}
-                    destination={request.Destination}
-                    currentFare={request.CurrentFare}
-                    numberOfSeats={request.NumberOfSeats}
-                    status={request.Status}
-                    dateTime={request.CreatedDateTime}
-                  />
+                {Array.from({length:10}).map((_, index) => (
+                  <RideRequestItem key={index}/>
                 ))}
               </tbody>
             </table>
