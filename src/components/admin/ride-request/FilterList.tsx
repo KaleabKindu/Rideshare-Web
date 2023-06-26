@@ -57,11 +57,9 @@ const FilterList: React.FC<DropdownProps> = ({ options, onSelect, onSearch}) => 
       ))}
     </select>
     <div className = "">
-      {Array.isArray(st_res) &&
-        st_res.map((request) => (
-          <RideRequestItem name={request.name} origin={request.Origin} destination={request.Destination} currentFare={request.CurrentFare} numberOfSeats={request.NumberOfSeats} status={request.Status} dateTime={request.CreatedDateTime}/>
-        ))}
-
+    {Array.from({length:10}).map((_, index) => (
+                  <RideRequestItem key={index}/>
+                ))}
      
     </div>
    
@@ -86,10 +84,9 @@ const FilterList: React.FC<DropdownProps> = ({ options, onSelect, onSearch}) => 
       {isLoading && <div>Loading...</div>}
       {isError && <div>Error fetching search results</div>}
       <div className = "">
-      {Array.isArray(response) &&
-        response.map((request) => (
-          <RideRequestItem name={request.name} origin={request.Origin} destination={request.Destination} currentFare={request.CurrentFare} numberOfSeats={request.NumberOfSeats} status={request.Status} dateTime={request.CreatedDateTime}/>
-        ))}
+      {Array.from({length:10}).map((_, index) => (
+                  <RideRequestItem key={index}/>
+                ))}
 
       </div>
     </div>
