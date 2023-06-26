@@ -57,7 +57,7 @@ const SideBar = (props: SideBarProps) => {
       </div>
 
       <button
-        className="flex items-center gap-3 py-2 px-5 mt-auto mb-[30%]"
+        className="flex items-center gap-3 py-2 px-5 mt-auto hover:bg-primary hover:bg-opacity-20 mb-[30%]"
         onClick={() => {
           dispatch(logout);
           router.push("/admin/auth/login");
