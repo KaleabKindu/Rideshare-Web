@@ -1,5 +1,5 @@
 import React from 'react'
-import {Point, Status} from '@/types/admin-dashboard/ride-request'
+import {Point, Status} from '@/types/admin/ride-request'
 import { getRequestStatus } from './Status';
 
 interface RideRequestProps {

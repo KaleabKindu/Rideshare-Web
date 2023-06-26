@@ -1,7 +1,7 @@
-[
+{ "ride-requests" : [
     {
         "RideRequestID": 1,
-        "name": "John Doe",
+        "name": "Rediet Ferew",
         "Commuter": {
           "UserID": 1,
           "Fullname": "John Doe",
@@ -22,7 +22,7 @@
       },
       {
         "RideRequestID": 2,
-        "name": "John Doe",
+        "name": "Joseph Doe",
         "Commuter": {
           "UserID": 2,
           "Fullname": "John Doe",
@@ -64,7 +64,7 @@
       },
       {
         "RideRequestID": 4,
-        "name": "John Doe",
+        "name": "Joey Tribiani",
         "Commuter": {
           "UserID": 4,
           "Fullname": "John Doe",
@@ -85,7 +85,7 @@
       },
       {
         "RideRequestID": 5,
-        "name": "John Doe",
+        "name": "Phoebe",
         "Commuter": {
           "UserID": 5,
           "Fullname": "John Doe",
@@ -106,7 +106,7 @@
       },
       {
         "RideRequestID": 6,
-        "name": "John Doe",
+        "name": "Chandler",
         "Commuter": {
           "UserID": 6,
           "Fullname": "John Doe",
@@ -127,7 +127,7 @@
       },
       {
         "RideRequestID": 7,
-        "name": "John Doe",
+        "name": "Monica",
         "Commuter": {
           "UserID": 7,
           "Fullname": "John Doe",
@@ -148,7 +148,7 @@
       },
       {
         "RideRequestID": 8,
-        "name": "John Doe",
+        "name": "Joker",
         "Commuter": {
           "UserID": 8,
           "Fullname": "John Doe",
@@ -169,7 +169,7 @@
       },
       {
         "RideRequestID": 9,
-        "name": "John Doe",
+        "name": "Tracey",
         "Commuter": {
           "UserID": 9,
           "Fullname": "John Doe",
@@ -377,4 +377,4 @@
         "NumberOfSeats": 1,
         "CreatedDateTime": "6/23/2023"
       }
-]
+]}

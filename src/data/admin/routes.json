@@ -1,0 +1,5 @@
+{
+    "/ride-request?name=:name": "/ride-requests?name=:name",
+    "/ride-request?Status=:Status": "/ride-requests?Status=:Status"
+  }
+  
