@@ -10,8 +10,7 @@ const RideRequestItem: React.FC= () => {
     
       <tr>
                 <td className="px-3 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                    
-                                <h2 className="font-medium text-gray-800 dark:text-white">Tony Stark</h2>
+                       <h2 className="font-medium text-gray-800 dark:text-white">Tony Stark</h2>
     
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">4 kilo</td>

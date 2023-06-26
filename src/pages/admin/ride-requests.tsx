@@ -1,6 +1,6 @@
 import RideRequestItem from '@/components/admin/ride-request/RideRequestItem'
 import RideRequestList from '@/components/admin/ride-request/RideRequestList'
-import TrialRequest from '@/components/admin/ride-request/TrialRequest'
+
 import withAdminLayout from '@/components/common/admin/withAdminLayout'
 import Head from 'next/head'
 import React from 'react'
