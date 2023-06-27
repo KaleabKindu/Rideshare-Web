@@ -1,8 +1,7 @@
 import withAdminLayout from "@/components/common/admin/withAdminLayout";
-import Role from "@/components/users/Role";
-import Status from "@/components/users/Status";
+import Role from "@/components/admin/users/Role";
+import Status from "@/components/admin/users/Status";
 import { BsFillTrash3Fill } from "react-icons/bs";
-import { AiOutlineSearch } from "react-icons/ai";
 import Head from "next/head";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
@@ -10,6 +9,10 @@ import Pagination from "@/components/common/admin/Pagination";
 import SearchBar from "@/components/common/admin/SearchBar";
 import DropDown from "@/components/common/admin/DropDown";
 
+const routes = { 
+  'commuter':'/admin/users/commuter/',
+  'driver':'/admin/users/driver/'
+}
 type UsersProps = {};
 
 const Users = (props: UsersProps) => {
@@ -101,7 +104,7 @@ const Users = (props: UsersProps) => {
                       <tr
                         key={index}
                         className="hover:bg-primary hover:bg-opacity-10 border cursor-pointer"
-                        onClick={() => router.push(`/admin/users/${index}`)}
+                        onClick={() => router.push(`${routes['commuter']}${index}`)}
                       >
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">
