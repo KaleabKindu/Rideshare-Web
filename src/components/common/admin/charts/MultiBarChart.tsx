@@ -38,7 +38,7 @@ interface MultiBarChartProps {
   showLegends?: boolean;
   axis?: "x" | "y";
   borderRadius?: number;
-  legendsPosition?: 'left' | 'right' | 'center' | 'bottom' | 'top'
+  legendsPosition?: "left" | "right" | "center" | "bottom" | "top";
 }
 
 export const MultiBarChart = ({
@@ -47,7 +47,7 @@ export const MultiBarChart = ({
   showLegends = true,
   axis = "x",
   borderRadius = 0,
-  legendsPosition = 'top'
+  legendsPosition = "top",
 }: MultiBarChartProps) => {
   const options = {
     elements: {

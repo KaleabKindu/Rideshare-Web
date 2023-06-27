@@ -11,8 +11,8 @@ interface DoughnutChartProps {
   name: string;
   colors: string[];
   showLegends?: boolean;
-  legendsPosition?: 'left' | 'right' | 'center' | 'bottom' | 'top',
-  cutout?:string,
+  legendsPosition?: "left" | "right" | "center" | "bottom" | "top";
+  cutout?: string;
 }
 export const DoughnutChart = ({
   chartData,
@@ -20,13 +20,13 @@ export const DoughnutChart = ({
   name,
   colors,
   showLegends = true,
-  legendsPosition = 'right',
-  cutout = '50%',
+  legendsPosition = "right",
+  cutout = "50%",
 }: DoughnutChartProps) => {
   const options = {
     responsive: true,
-    cutout:cutout,
-    opacity:0,
+    cutout: cutout,
+    opacity: 0,
     plugins: {
       legend: {
         display: showLegends,
@@ -41,27 +41,27 @@ export const DoughnutChart = ({
       },
       tooltip: {
         usePointStyle: true,
-        enabled:true,
-        translateX:'-520px',
+        enabled: true,
+        translateX: "-520px",
         callbacks: {
-          label: function (context:any) {
+          label: function (context: any) {
             const label = context.label;
-            context.label = context.dataset.label
-            const total = chartData.reduce((previousValue, currentValue) => previousValue + currentValue);
-            if (context.parsed){
+            context.label = context.dataset.label;
+            const total = chartData.reduce(
+              (previousValue, currentValue) => previousValue + currentValue
+            );
+            if (context.parsed) {
               const currentValue = context.parsed;
               const percentage = ((currentValue / total) * 100).toFixed(2);
               return ` ${label}: ${percentage}%`;
             }
-            
           },
-          title: function(context:any) {
-            return context[0].dataset.label
-          }
-        }
-    }
+          title: function (context: any) {
+            return context[0].dataset.label;
+          },
+        },
+      },
     },
-
   };
   const data = {
     labels: labels,

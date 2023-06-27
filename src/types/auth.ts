@@ -1,15 +1,15 @@
 export interface Credentials {
-    username:string,
-    password:string
+  username: string;
+  password: string;
 }
 export interface Token {
-    message:string,
-    accessToken:string,
-    refreshToken:string
+  message: string;
+  accessToken: string;
+  refreshToken: string;
 }
 export interface LoginResponse {
-    success:boolean,
-    message:string,
-    value:Token,
-    errors:string[]
+  success: boolean;
+  message: string;
+  value: Token;
+  errors: string[];
 }

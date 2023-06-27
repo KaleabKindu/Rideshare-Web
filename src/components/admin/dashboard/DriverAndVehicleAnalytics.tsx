@@ -10,23 +10,27 @@ type DriverAndVehicleAnalyticsProps = {};
 
 const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
   const [interval, setInterval] = useState("monthly");
-  const [year, setYear] = useState('2022')
-  const [month, setMonth] = useState('Jan')
-  const [inner, setInner] = useState(false)
-  useEffect(()=>{
-    if(inner){
+  const [year, setYear] = useState("2022");
+  const [month, setMonth] = useState("Jan");
+  const [inner, setInner] = useState(false);
+  useEffect(() => {
+    if (inner) {
       const toRef = setTimeout(() => {
-        setInner(false)
-        clearTimeout(toRef)
-      }, 2000)
+        setInner(false);
+        clearTimeout(toRef);
+      }, 2000);
     }
-   
-  })
+  });
   return (
     <div className="space-y-16">
       <div className="flex flex-wrap lg:flex-nowrap items-start gap-5">
         <div className="w-full lg:w-60% space-y-3">
-          <IntervalFilter interval={interval} setInterval={setInterval} setMonth={setMonth} setYear={setYear} />
+          <IntervalFilter
+            interval={interval}
+            setInterval={setInterval}
+            setMonth={setMonth}
+            setYear={setYear}
+          />
           <div className="space-y-5 rounded-lg border p-8 bg-white shadow-lg max-w-4xl">
             <div className="text-2xl font-semibold pl-8">
               Drivers and Vehicles Analytics
@@ -66,13 +70,16 @@ const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
             />
           </div>
         </div>
-       
+
         <div className="max-w-md lg:w-[40%] rounded-lg border p-5 space-y-5 bg-white shadow-lg">
           <div className="text-xl font-semibold w-fit">
             Current Drivers Status
           </div>
           <div className="flex gap-3">
-            <div className={`relative ${inner && 'z-10'}`} onMouseEnter={() => setInner(true)}>
+            <div
+              className={`relative ${inner && "z-10"}`}
+              onMouseEnter={() => setInner(true)}
+            >
               <DoughnutChart
                 showLegends={false}
                 cutout="70%"
@@ -86,7 +93,12 @@ const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
                 ]}
               />
 
-              <div className={`absolute bottom-[20%] right-[20%] w-[60%] mx-auto ${inner && '-z-10'}`}  onMouseOut={() => setInner(true)}>
+              <div
+                className={`absolute bottom-[20%] right-[20%] w-[60%] mx-auto ${
+                  inner && "-z-10"
+                }`}
+                onMouseOut={() => setInner(true)}
+              >
                 <DoughnutChart
                   showLegends={false}
                   cutout="70%"
@@ -126,7 +138,6 @@ const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
         <TopVehicles />
         <TopDrivers />
       </div>
-      
     </div>
   );
 };

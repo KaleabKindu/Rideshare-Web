@@ -4,7 +4,7 @@ import Image from "next/image";
 import Step from "./Step";
 import steps from "@/data/landing-page/steps.json";
 
-const HowItWorks: React.FC= () => {
+const HowItWorks: React.FC = () => {
   return (
     <section id="howitworks" className="font-{poppins} mt-20 pt-16">
       <h1 className="text-5xl mb-10 font-semibold text-center">
@@ -40,7 +40,7 @@ const HowItWorks: React.FC= () => {
           data-testid="mobile_image"
         >
           <Image
-            src='/images/landing-page/mobile-image.png'
+            src="/images/landing-page/mobile-image.png"
             alt="a mobile app UI for rideshare application"
             className="aspect-auto"
             width={300}

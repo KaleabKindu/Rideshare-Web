@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MdLogout } from "react-icons/md";
 import { useAppDispatch } from "@/store/hooks";
 import { logout } from "@/store/auth/authSlice";
+import { persistor } from "@/store/store";
 
 type SideBarProps = {};
 
@@ -60,6 +61,7 @@ const SideBar = (props: SideBarProps) => {
         className="flex items-center gap-3 py-2 px-5 mt-auto hover:bg-primary hover:bg-opacity-20 mb-[30%]"
         onClick={() => {
           dispatch(logout);
+          persistor.purge()
           router.push("/admin/auth/login");
         }}
       >

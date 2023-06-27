@@ -33,7 +33,7 @@ interface AreaChartProps {
   axis?: "x" | "y";
   borderRadius?: number;
   showLegends?: boolean;
-  legendsPosition?: 'left' | 'right' | 'center' | 'bottom' | 'top'
+  legendsPosition?: "left" | "right" | "center" | "bottom" | "top";
 }
 
 export const MultiLineChart = ({
@@ -42,7 +42,7 @@ export const MultiLineChart = ({
   axis = "x",
   borderRadius = 0,
   showLegends = true,
-  legendsPosition = 'top'
+  legendsPosition = "top",
 }: AreaChartProps) => {
   const options = {
     indexAxis: axis,
@@ -51,9 +51,9 @@ export const MultiLineChart = ({
       legend: {
         display: showLegends,
         position: legendsPosition,
-        labels:{
-          usePointStyle: true
-        }
+        labels: {
+          usePointStyle: true,
+        },
       },
       title: {
         display: false,

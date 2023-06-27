@@ -1,8 +1,8 @@
-import withAdminLayout from '@/components/common/admin/withAdminLayout'
-import Head from 'next/head'
-import React from 'react'
+import withAdminLayout from "@/components/common/admin/withAdminLayout";
+import Head from "next/head";
+import React from "react";
 
-type RideOffersProps = {}
+type RideOffersProps = {};
 
 const RideOffers = (props: RideOffersProps) => {
   return (
@@ -12,7 +12,7 @@ const RideOffers = (props: RideOffersProps) => {
       </Head>
       <div>Ride Offers</div>
     </div>
-  )
-}
+  );
+};
 
-export default withAdminLayout(RideOffers)
+export default withAdminLayout(RideOffers);

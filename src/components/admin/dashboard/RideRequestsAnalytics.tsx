@@ -9,13 +9,18 @@ type RideRequestsAnalyticsProps = {};
 
 const RideRequestsAnalytics = (props: RideRequestsAnalyticsProps) => {
   const [interval, setInterval] = useState("monthly");
-  const [year, setYear] = useState('2022')
-  const [month, setMonth] = useState('Jan')
+  const [year, setYear] = useState("2022");
+  const [month, setMonth] = useState("Jan");
   return (
     <div className="space-y-16">
       <div className="flex flex-wrap items-start gap-3">
         <div className="w-full lg:w-[60%] space-y-3">
-          <IntervalFilter interval={interval} setInterval={setInterval} setMonth={setMonth} setYear={setYear} />
+          <IntervalFilter
+            interval={interval}
+            setInterval={setInterval}
+            setMonth={setMonth}
+            setYear={setYear}
+          />
           <div className="border rounded-lg p-5 space-y-5 bg-white shadow-lg max-w-4xl">
             <div className="text-2xl font-semibold pl-8">
               Ride Requests Analytics
@@ -44,7 +49,7 @@ const RideRequestsAnalytics = (props: RideRequestsAnalyticsProps) => {
             />
           </div>
         </div>
-        
+
         <div className="rounded-lg border p-5 max-w-md bg-white shadow-lg">
           <div className="text-xl font-semibold">Ride Requests Status</div>
           <DoughnutChart
@@ -61,9 +66,7 @@ const RideRequestsAnalytics = (props: RideRequestsAnalyticsProps) => {
           />
         </div>
       </div>
-      <StatusAnalytics name="Ride Offers"/>
-
-      
+      <StatusAnalytics name="Ride Offers" />
     </div>
   );
 };

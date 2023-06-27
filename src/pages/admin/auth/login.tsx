@@ -1,11 +1,11 @@
 import { HiEye } from "react-icons/hi";
-import { BsEnvelope } from 'react-icons/bs';
-import { FiShieldOff } from 'react-icons/fi';
-import { BsEyeSlash } from 'react-icons/bs';
+import { BsEnvelope } from "react-icons/bs";
+import { FiShieldOff } from "react-icons/fi";
+import { BsEyeSlash } from "react-icons/bs";
 import Image from "next/image";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useAdminLoginMutation } from "@/store/api/index";
 import router from "next/router";
 import { useAppDispatch } from "@/store/hooks";
@@ -16,14 +16,13 @@ import { ClipLoader } from "react-spinners";
 const Login: React.FC = () => {
   const [adminLogin, { isLoading }] = useAdminLoginMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const dispatch = useAppDispatch()
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const dispatch = useAppDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,12 +30,12 @@ const Login: React.FC = () => {
     try {
       const response = await adminLogin({
         username: username,
-        password: password
+        password: password,
       }).unwrap();
-      dispatch(setAccessToken(response.value))
+      dispatch(setAccessToken(response.value));
       router.push("/admin/dashboard");
     } catch (error) {
-      toast.error('Invalid username or password');
+      toast.error("Invalid username or password");
     }
   };
 
@@ -70,7 +69,7 @@ const Login: React.FC = () => {
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
-                required 
+                required
               />
               <div className="absolute top-2 left-2">
                 <BsEnvelope className="text-gray-400" size={24} />
@@ -104,7 +103,7 @@ const Login: React.FC = () => {
               className="bg-primary text-white py-2 px-8 rounded-lg transition-colors w-full"
               disabled={isLoading}
             >
-              {isLoading ? <ClipLoader size={20} color="white" /> : 'Login'}
+              {isLoading ? <ClipLoader size={20} color="white" /> : "Login"}
             </button>
           </form>
         </div>

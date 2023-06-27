@@ -1,5 +1,5 @@
-import AdminLayout from './AdminLayout';
-import React, { ComponentType } from 'react';
+import AdminLayout from "./AdminLayout";
+import React, { ComponentType } from "react";
 
 type WithAdminLayoutProps = {
   // Define any props specific to the layout HOC, if needed
@@ -20,4 +20,3 @@ const withAdminLayout = <P extends object>(
 };
 
 export default withAdminLayout;
-

@@ -1,8 +1,8 @@
-import withAdminLayout from '@/components/common/admin/withAdminLayout'
-import Head from 'next/head'
-import React from 'react'
+import withAdminLayout from "@/components/common/admin/withAdminLayout";
+import Head from "next/head";
+import React from "react";
 
-type RideRequestsProps = {}
+type RideRequestsProps = {};
 
 const RideRequests = (props: RideRequestsProps) => {
   return (
@@ -12,7 +12,7 @@ const RideRequests = (props: RideRequestsProps) => {
       </Head>
       <div>Ride Requests</div>
     </div>
-  )
-}
+  );
+};
 
-export default withAdminLayout(RideRequests)
+export default withAdminLayout(RideRequests);
