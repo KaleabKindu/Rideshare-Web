@@ -9,10 +9,10 @@ import Pagination from "@/components/common/admin/Pagination";
 import SearchBar from "@/components/common/admin/SearchBar";
 import DropDown from "@/components/common/admin/DropDown";
 
-const routes = { 
-  'commuter':'/admin/users/commuter/',
-  'driver':'/admin/users/driver/'
-}
+const routes = {
+  commuter: "/admin/users/commuter/",
+  driver: "/admin/users/driver/",
+};
 type UsersProps = {};
 
 const Users = (props: UsersProps) => {
@@ -104,7 +104,9 @@ const Users = (props: UsersProps) => {
                       <tr
                         key={index}
                         className="hover:bg-primary hover:bg-opacity-10 border cursor-pointer"
-                        onClick={() => router.push(`${routes['commuter']}${index}`)}
+                        onClick={() =>
+                          router.push(`${routes["commuter"]}${index}`)
+                        }
                       >
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">

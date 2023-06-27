@@ -9,33 +9,33 @@ import { setActiveRoute } from "@/store/navigation/navigation";
 import withLayout from "@/components/common/withLayout";
 
 export const Home = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section')
-      let currentSection = ''
+      const sections = document.querySelectorAll("section");
+      let currentSection = "";
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.offsetHeight
-        const scrollPosition = window.pageYOffset
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const scrollPosition = window.pageYOffset;
 
         if (
           scrollPosition >= sectionTop - 300 &&
           scrollPosition < sectionTop + sectionHeight + 50
         ) {
-          currentSection = section.getAttribute('id') || ''
+          currentSection = section.getAttribute("id") || "";
         }
-      })
+      });
 
-      dispatch(setActiveRoute('#' + currentSection))
-    }
+      dispatch(setActiveRoute("#" + currentSection));
+    };
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -49,6 +49,6 @@ export const Home = () => {
       </div>
     </>
   );
-}
+};
 
-export default withLayout(Home)
+export default withLayout(Home);

@@ -1,5 +1,5 @@
-import Layout from './Layout';
-import React, { ComponentType } from 'react';
+import Layout from "./Layout";
+import React, { ComponentType } from "react";
 
 type WithLayoutProps = {
   // Define any props specific to the layout HOC, if needed
@@ -20,4 +20,3 @@ const withLayout = <P extends object>(
 };
 
 export default withLayout;
-

@@ -1,36 +1,42 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
-    role:string,
-    textSize?:string
-}
+  role: string;
+  textSize?: string;
+};
 
-const Role = ({role, textSize='text-xs'}: Props) => {
-  switch(role){
-    case 'commuter':{
-        return (
-        <p className={`font-semibold px-5 py-1 ${textSize} text-cyan-500 rounded-full dark:bg-gray-800 bg-cyan-100/60`}>
-            Commuter
+const Role = ({ role, textSize = "text-xs" }: Props) => {
+  switch (role) {
+    case "commuter": {
+      return (
+        <p
+          className={`font-semibold px-5 py-1 ${textSize} text-cyan-500 rounded-full dark:bg-gray-800 bg-cyan-100/60`}
+        >
+          Commuter
         </p>
       );
     }
-    case 'driver':{
-        return (
-        <p className={`font-semibold px-5 py-1 ${textSize} text-fuchsia-500 rounded-full dark:bg-gray-800 bg-fuchsia-100/60`}>
-            Driver
+    case "driver": {
+      return (
+        <p
+          className={`font-semibold px-5 py-1 ${textSize} text-fuchsia-500 rounded-full dark:bg-gray-800 bg-fuchsia-100/60`}
+        >
+          Driver
         </p>
       );
     }
-    case 'admin':{
-        return (
-        <p className={`font-semibold px-5 py-1 ${textSize} text-orange-500 rounded-full dark:bg-gray-800 bg-orange-100/60`}>
-            Admin
+    case "admin": {
+      return (
+        <p
+          className={`font-semibold px-5 py-1 ${textSize} text-orange-500 rounded-full dark:bg-gray-800 bg-orange-100/60`}
+        >
+          Admin
         </p>
       );
     }
     default:
-        return <div/>
+      return <div />;
   }
-}
+};
 
-export default Role
+export default Role;

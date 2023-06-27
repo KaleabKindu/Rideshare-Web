@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import LineChart from "@/components/common/admin/charts/MultiLineChart";
-import IntervalFilter from '@/components/common/admin/Interval';
-
+import IntervalFilter from "@/components/common/admin/Interval";
 
 type StatusAnalyticsProps = {
-  name:string
-}
+  name: string;
+};
 
-const StatusAnalytics = ({name}: StatusAnalyticsProps) => {
-    const [interval, setInterval] = useState("monthly");
-    const [year, setYear] = useState('2022')
-    const [month, setMonth] = useState('Jan')
+const StatusAnalytics = ({ name }: StatusAnalyticsProps) => {
+  const [interval, setInterval] = useState("monthly");
+  const [year, setYear] = useState("2022");
+  const [month, setMonth] = useState("Jan");
   return (
-    <div className='w-full lg:w-[70%] space-y-3'>
-      <IntervalFilter interval={interval} setInterval={setInterval} setMonth={setMonth} setYear={setYear} />
+    <div className="w-full lg:w-[70%] space-y-3">
+      <IntervalFilter
+        interval={interval}
+        setInterval={setInterval}
+        setMonth={setMonth}
+        setYear={setYear}
+      />
       <div className="border rounded-lg p-5 space-y-5 bg-white shadow-lg max-w-4xl">
         <div className="text-xl font-semibold">{name} Status Overtime</div>
         <LineChart
@@ -48,8 +52,7 @@ const StatusAnalytics = ({name}: StatusAnalyticsProps) => {
         />
       </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default StatusAnalytics
+export default StatusAnalytics;

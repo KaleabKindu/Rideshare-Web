@@ -27,7 +27,7 @@ interface BarChartProps {
   axis?: "x" | "y";
   borderRadius?: number;
   showLegends?: boolean;
-  legendsPosition?: 'left' | 'right' | 'center' | 'bottom' | 'top',
+  legendsPosition?: "left" | "right" | "center" | "bottom" | "top";
 }
 
 export const BarChart = ({
@@ -38,7 +38,7 @@ export const BarChart = ({
   axis = "x",
   borderRadius = 0,
   showLegends = true,
-  legendsPosition = 'top'
+  legendsPosition = "top",
 }: BarChartProps) => {
   const options = {
     elements: {

@@ -4,7 +4,10 @@ import TextSection from "@/components/landing-page/benefits-section/TextSection"
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section id="benefits" className="flex justify-center flex-col items-center pt-16">
+    <section
+      id="benefits"
+      className="flex justify-center flex-col items-center pt-16"
+    >
       <div className="text-poppins text-center">
         <div className=" pt-8">
           <h1 className="text-5xl font-semibold">
