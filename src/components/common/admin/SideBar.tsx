@@ -34,7 +34,7 @@ const SideBar = (props: SideBarProps) => {
     },
   ];
   return (
-    <div className="fixed flex flex-col top-0 left-0 bg-gray-100 h-screen md:w-52 pt-32 shadow-lg">
+    <div className="fixed flex flex-col top-0 left-0 bg-gray-100 h-full md:w-52 pt-32 shadow-lg">
       <div className="space-y-3">
         {routes.map((route, index) => (
           <Link
