@@ -4,9 +4,13 @@ import { pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 import { useGetVehicleByIdQuery } from '@/store/api';
+import { useRouter } from "next/router";
 
 const Vehicles = () => {
-    const pageNumber = 1;
+    const pageNumber = 1
+
+    const router = useRouter();
+    const id = router.query.id
 
     const {  data , isLoading , isError } = useGetVehicleByIdQuery(1)
 
@@ -22,9 +26,9 @@ const Vehicles = () => {
 
   return (
 
-    <div className="flex justify-center h-screen">
+    <div className="flex justify-center max-w-lg border rounded-lg shadow-md mx-auto p-8 h-screen">
       {/* Left column */}
-      <div className="w-1/6 mx-2 bg-white">
+      <div className="w-1/2 mx-2 bg-white">
         <div className="bg-white p-4">
           <p>Model</p>
         </div>
@@ -40,7 +44,7 @@ const Vehicles = () => {
       </div>
 
       {/* Right column */}
-      <div className="w-1/4 mx-2 bg-white">
+      <div className="w-1/2 mx-2 bg-white ">
         <div className="bg-white p-4">
           <p className="bg-gray-100 px-6 flex justify-center">{data?.model}</p>
         </div>
@@ -52,8 +56,8 @@ const Vehicles = () => {
         </div>
         <div className="bg-white p-4">
           <a href={data?.libre} target="_blank" rel="noopener noreferrer">
-            <Document className="custom-document" file={data?.libre}>
-              <Page pageNumber={pageNumber} width={250}  />
+            <Document className="custom-document"  file={data?.libre}>
+              <Page pageNumber={pageNumber} width={200} height={300}   />
             </Document>
           </a>
         </div>
