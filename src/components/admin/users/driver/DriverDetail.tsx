@@ -21,7 +21,7 @@ const DriverDetail: React.FC<DriverDetailProps> = ({ driver }) => {
 
   return (
     <div
-      className={`bg-white mx-10 lg:px-20 lg:mx-40 my-8 py-8 border border-gray-300 rounded-3xl ${
+      className={`bg-white mx-10 lg:px-20 lg:mx-40 my-5 py-8 border border-gray-300 rounded-3xl ${
         isZoomed ? 'overflow-hidden' : ''
       }`}
     >
@@ -85,7 +85,7 @@ const DriverDetail: React.FC<DriverDetailProps> = ({ driver }) => {
           <span>Address</span>
           <span>{driver.value.experience}</span>
           <span>Rate Number</span>
-          <span>{driver.value.rate}</span>
+          <span>{driver.value.rate[2]}</span>
         </div>
       </div>
     </div>

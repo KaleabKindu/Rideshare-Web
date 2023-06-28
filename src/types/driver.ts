@@ -18,9 +18,10 @@ export interface Value {
 }
 
 export interface User {
-    roles:         any[];
-    fullName:      string;
-    phoneNumber:   null;
-    age:           number;
-    statusByLogin: null;
+    roles:          any[];
+    fullName:       string;
+    phoneNumber:    string;
+    age:            number;
+    statusByLogin:  null;
+    profilePicture: null;
 }
