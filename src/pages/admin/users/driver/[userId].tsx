@@ -9,7 +9,6 @@ const User = () => {
   const router = useRouter();
   const driverID = router.query.userId as string;
   const { data, isLoading, isError} = useGetDriverByIDQuery(driverID);
-  console.log(data)
 
   if (isLoading) {
     return <div>Loading...</div>;
