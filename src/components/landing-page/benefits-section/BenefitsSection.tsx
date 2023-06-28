@@ -1,4 +1,4 @@
-import text from "@/data/benfits/benefits.json";
+import text from "@/data/landing-page/benefits.json";
 import BenefitsImage from "@/components/landing-page/benefits-section/BenefitsImage";
 import TextSection from "@/components/landing-page/benefits-section/TextSection";
 
