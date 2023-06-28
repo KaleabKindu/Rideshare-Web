@@ -1,11 +1,8 @@
 import withAdminLayout from "@/components/common/admin/withAdminLayout";
 import Head from "next/head";
 import React from "react";
-<<<<<<< HEAD
-=======
-import Final from "@/components/admin/ride-offers/RideOffers";
+import Final from "@/components/admin/ride-offers/RideOffersList";
 import FilterOffers from "@/components/admin/ride-offers/FilterOffers";
->>>>>>> 3fb56d9 (implement ride offers list page)
 
 type RideOffersProps = {};
 

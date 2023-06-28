@@ -2,7 +2,7 @@ import React from "react";
 import offers from "@/data/admin/ride-offers.json";
 import { getOfferStatus } from "./Status";
 
-const final = () => {
+const RideOffersList = () => {
   return (
     <div>
       <div className="flex flex-col mt-6">
@@ -163,4 +163,4 @@ const final = () => {
   );
 };
 
-export default final;
+export default RideOffersList;
