@@ -1,6 +1,6 @@
 import DriverDetail from '@/components/admin/users/driver/DriverDetail'
 import withAdminLayout from '@/components/common/admin/withAdminLayout'
-import { useGetDriverByIDQuery } from '@/store/api'
+import { useGetDriverByIDQuery } from '@/store/api';
 import { useRouter } from 'next/router'
 import React from 'react'
 import { Driver } from '@/types/driver';
