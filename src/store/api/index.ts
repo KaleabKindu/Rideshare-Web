@@ -4,8 +4,9 @@ import { Credentials, LoginResponse } from "@/types/auth";
 import { Driver } from "@/types/driver";
 import { User, UsersFilter } from "@/types/Users";
 import { FeedBack } from "@/types/commuter";
+import { Vehicle } from "@/types/vehicles";
 
-export const apiSlice = createApi({
+export const apiSlice: any = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://rideshare-app.onrender.com/api/",
@@ -28,30 +29,34 @@ export const apiSlice = createApi({
     }),
     getDriverByID: builder.query<Driver, string>({
       query: (id) => `Driver/admin/${id}`,
-      transformResponse(baseQueryReturnValue:any, meta, arg) {
-        return baseQueryReturnValue.value
+      transformResponse(baseQueryReturnValue: any, meta, arg) {
+        return baseQueryReturnValue.value;
       },
     }),
     getUserByID: builder.query<User, string>({
       query: (id) => `User/withAGiven/${id}`,
-      transformResponse(baseQueryReturnValue:any, meta, arg) {
-        return baseQueryReturnValue.value
+      transformResponse(baseQueryReturnValue: any, meta, arg) {
+        return baseQueryReturnValue.value;
       },
     }),
     getCommutersFeedback: builder.query<
-    { total: number; feedbacks: FeedBack[] },
-    { page: number; size: number }
+      { total: number; feedbacks: FeedBack[] },
+      { page: number; size: number }
     >({
-      query: ({page, size}) => `Feedback/?pageNumber=${page}&pageSize=${size}`,
-      transformResponse(baseQueryReturnValue:any, meta, arg) {
-        return {total:baseQueryReturnValue.value.count, feedbacks:baseQueryReturnValue.value.paginatedFeedback}
+      query: ({ page, size }) => `Feedback/?pageNumber=${page}&pageSize=${size}`,
+      transformResponse(baseQueryReturnValue: any, meta, arg) {
+        return {
+          total: baseQueryReturnValue.value.count,
+          feedbacks: baseQueryReturnValue.value.paginatedFeedback,
+        };
       },
     }),
     getUsers: builder.query<
       { pages: number; users: User[] },
       { page: number; size: number }
     >({
-      query: ({ page, size }) => `User/all?pageNumber=${page}&pageSize=${size}`,
+      query: ({ page, size }) =>
+        `User/all?pageNumber=${page}&pageSize=${size}`,
       providesTags: ["Users"],
       transformResponse(baseQueryReturnValue: any, meta, arg) {
         return {
@@ -81,7 +86,21 @@ export const apiSlice = createApi({
         };
       },
     }),
+    getVehicleById: builder.query<Vehicle, number>({
+      query: (id) => `Vehicles/${id}`,
+      transformResponse(baseQueryReturnValue: any, meta, arg) {
+        return baseQueryReturnValue.value;
+      },
+    }),
   }),
 });
 
-export const { useAdminLoginMutation,useGetCommutersFeedbackQuery, useGetUserByIDQuery, useGetDriverByIDQuery, useGetUsersQuery, useFilterUsersQuery } = apiSlice;
+export const {
+  useAdminLoginMutation,
+  useGetCommutersFeedbackQuery,
+  useGetUserByIDQuery,
+  useGetDriverByIDQuery,
+  useGetUsersQuery,
+  useFilterUsersQuery,
+  useGetVehicleByIdQuery,
+} = apiSlice;
