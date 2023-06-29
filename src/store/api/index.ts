@@ -25,7 +25,7 @@ export const apiSlice: any = createApi({
         url: "User/admin/login",
         method: "POST",
         body: credentials,
-      }),
+      }),             
     }),
     getDriverByID: builder.query<Driver, string>({
       query: (id) => `Driver/admin/${id}`,
