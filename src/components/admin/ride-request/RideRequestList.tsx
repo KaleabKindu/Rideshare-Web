@@ -35,16 +35,21 @@ const RideRequestList = () => {
   return (
     <div>
       <div className="flex w-full justify-evenly my-10 items-center">
+        <SearchBar
+            setQuery={function (value: React.SetStateAction<string>): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
         <DropDown
           label={"Status"}
-          options={opts}
+          options={[
+            { option: "All", value: "" },
+            { option: "onroute", value: "Onroute" },
+            { option: "Waiting", value: "waiting" },
+            { option: "Completed", value: "completed" },
+            { option: "Canceled", value: "canceled" },
+          ]}
           setValue={function (value: React.SetStateAction<string>): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
-
-        <SearchBar
-          setQuery={function (value: React.SetStateAction<string>): void {
             throw new Error("Function not implemented.");
           }}
         />
