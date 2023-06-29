@@ -1,3 +1,4 @@
+import RideRequestList from "@/components/admin/ride-request/RideRequestList";
 import withAdminLayout from "@/components/common/admin/withAdminLayout";
 import Head from "next/head";
 import React from "react";
@@ -10,7 +11,7 @@ const RideRequests = (props: RideRequestsProps) => {
       <Head>
         <title>Ride Requests</title>
       </Head>
-      <div>Ride Requests</div>
+      <div><RideRequestList/></div>
     </div>
   );
 };
