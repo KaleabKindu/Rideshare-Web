@@ -1,11 +1,6 @@
-export interface Driver {
-    success: boolean;
-    message: string;
-    value:   Value;
-    errors:  any[];
-}
 
-export interface Value {
+
+export interface Driver {
     id:            number;
     userId:        string;
     user:          User;

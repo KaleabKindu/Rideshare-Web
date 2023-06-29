@@ -3,6 +3,7 @@ import { RootState } from "../store";
 import { Credentials, LoginResponse } from "@/types/auth";
 import { Driver } from "@/types/driver";
 import { User, UsersFilter } from "@/types/Users";
+import { FeedBack } from "@/types/commuter";
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -26,7 +27,25 @@ export const apiSlice = createApi({
       }),
     }),
     getDriverByID: builder.query<Driver, string>({
-      query: (id) => `Driver/${id}`,
+      query: (id) => `Driver/admin/${id}`,
+      transformResponse(baseQueryReturnValue:any, meta, arg) {
+        return baseQueryReturnValue.value
+      },
+    }),
+    getUserByID: builder.query<User, string>({
+      query: (id) => `User/withAGiven/${id}`,
+      transformResponse(baseQueryReturnValue:any, meta, arg) {
+        return baseQueryReturnValue.value
+      },
+    }),
+    getCommutersFeedback: builder.query<
+    { total: number; feedbacks: FeedBack[] },
+    { page: number; size: number }
+    >({
+      query: ({page, size}) => `Feedback/?pageNumber=${page}&pageSize=${size}`,
+      transformResponse(baseQueryReturnValue:any, meta, arg) {
+        return {total:baseQueryReturnValue.value.count, feedbacks:baseQueryReturnValue.value.paginatedFeedback}
+      },
     }),
     getUsers: builder.query<
       { pages: number; users: User[] },
@@ -65,4 +84,4 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useAdminLoginMutation, useGetDriverByIDQuery, useGetUsersQuery, useFilterUsersQuery } = apiSlice;
+export const { useAdminLoginMutation,useGetCommutersFeedbackQuery, useGetUserByIDQuery, useGetDriverByIDQuery, useGetUsersQuery, useFilterUsersQuery } = apiSlice;

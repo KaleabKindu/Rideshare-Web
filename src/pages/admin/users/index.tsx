@@ -9,15 +9,16 @@ import Pagination from "@/components/common/admin/Pagination";
 import SearchBar from "@/components/common/admin/SearchBar";
 import DropDown from "@/components/common/admin/DropDown";
 import { useFilterUsersQuery, useGetUsersQuery } from "@/store/api";
-import { User } from "@/types/Users";
 import { ClipLoader } from "react-spinners";
 import UnknownError from "@/components/common/admin/UnknownError";
-import { FaUserAltSlash, FaUsersSlash } from "react-icons/fa";
+import { FaUsersSlash } from "react-icons/fa";
 
-const routes = {
-  commuter: "/admin/users/commuter/",
-  driver: "/admin/users/driver/",
-};
+const routes =new Map([
+  ["Commuter","/admin/users/commuter/"],
+ [ "Driver","/admin/users/driver/"],
+ [ "Admin","/admin/users/admin/"],
+
+]);
 type UsersProps = {};
 
 const Users = (props: UsersProps) => {
@@ -165,7 +166,7 @@ const Users = (props: UsersProps) => {
                             key={index}
                             className="hover:bg-primary hover:bg-opacity-10 border cursor-pointer"
                             onClick={() =>
-                              router.push(`${routes["commuter"]}${index}`)
+                              router.push(`${routes.get(user.roles[0].name)}${user.id}`)
                             }
                           >
                             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
