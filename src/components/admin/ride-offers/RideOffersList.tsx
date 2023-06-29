@@ -17,7 +17,7 @@ const RideOffersList = () => {
           <SearchBar setQuery={setQuery} />
           <DropDown
             label="Status"
-            options={["Completed", "onRoute", "Waiting", "Cancelled"]}
+            options={[{value:'completed', option:"Completed"}, {value:'onRoute',option:"onRoute"},{value:'waiting', option:"Waiting"}, {value:'cancelled',option:"Cancelled"}]}
             setValue={setStatus}
           />
         </div>
