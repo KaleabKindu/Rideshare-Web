@@ -3,9 +3,9 @@ import withAdminLayout from "@/components/common/admin/withAdminLayout";
 import Head from "next/head";
 import React from "react";
 
-type RideRequestsProps = {};
 
-const RideRequests = (props: RideRequestsProps) => {
+
+const RideRequests = () => {
   return (
     <div>
       <Head>

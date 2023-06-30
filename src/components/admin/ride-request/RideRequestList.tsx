@@ -12,19 +12,17 @@ import UnknownError from "@/components/common/admin/UnknownError";
 import { MdFilterAltOff } from "react-icons/md";
 
 const options = [
+  { option: "All", value: "" },
   { option: "onRoute", value: "onroute" },
   { option: "Waiting", value: "waiting" },
   { option: "Completed", value: "completed" },
   { option: "Canceled", value: "canceled" },
-  { option: "None", value: "" },
 ];
 
 const RideRequestList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [query, setQuery] = useState("");
   const [name, setName] = useState("");
-  const [origin, setOrigin] = useState("");
-  const [destination, setSestination] = useState("");
   const [status, setStatus] = useState("");
   const [fare, setFare] = useState(0);
   const [skipPagination, setSkipPagination] = useState(false);
@@ -40,7 +38,7 @@ const RideRequestList = () => {
     { page: currentPage, size: 10 },
     { skip: skipPagination }
   );
-  
+
   const {
     data: filterResult,
     error: filterError,
@@ -52,8 +50,6 @@ const RideRequestList = () => {
       page: currentPage,
       size: 10,
       name: name,
-      origin: origin,
-      destination: destination,
       status: status,
       fare: fare,
     },
@@ -69,181 +65,152 @@ const RideRequestList = () => {
     filterLoading || paginationLoading || filterFetching || paginationFetching;
   const error = filterError || paginationError;
   useEffect(() => {
-    if (name || status || fare || origin || destination) {
+    if (name || status || fare) {
       setSkipPagination(true);
       setSkipFilter(false);
     } else {
       setSkipFilter(true);
       setSkipPagination(false);
     }
-  }, [name, status, fare, origin, destination]);
+  }, [name, status, fare]);
 
-  console.log(rideRequests)
-  
+  console.log(rideRequests);
 
   return (
     <div>
       <div className="flex w-full justify-evenly my-10 items-center">
-        <SearchBar
-<<<<<<< HEAD
-            setQuery={function (value: React.SetStateAction<string>): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-        <DropDown
-          label={"Status"}
-          options={[
-            { option: "All", value: "" },
-            { option: "onroute", value: "Onroute" },
-            { option: "Waiting", value: "waiting" },
-            { option: "Completed", value: "completed" },
-            { option: "Canceled", value: "canceled" },
-          ]}
-          setValue={function (value: React.SetStateAction<string>): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
-=======
-          setQuery={setQuery}
-          
-        />
+        <SearchBar setQuery={setQuery} />
 
-        <DropDown
-          label={""}
-          options={options}
-          setValue={setStatus}
-        />
->>>>>>> c42ef6e (integrate ride request with api)
+        <DropDown label="Status" options={options} setValue={setStatus} />
       </div>
       {isLoading ? (
-          <div className="flex w-full">
-            <ClipLoader color="indigo" className="mx-auto mt-24" size={40} />
-          </div>
-        ) : error ? (
-          <UnknownError
-            refresh={skipPagination ? refetchFilter : refetchPagination}
-          />
-        ) : rideRequests.length > 0 ? (
-      <div>
-      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-          <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead className="bg-gray-50 dark:bg-gray-800">
-                <tr>
-                  <th
-                    scope="col"
-                    className="py-3.5 px-4 ml-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <span className="text-center">Commuter</span>
-                  </th>
-                  <th
-                    scope="col"
-                    className="py-3.5 px-3 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center">
-                      <span>Origin</span>
-                    </div>
-                  </th>
-                  <th
-                    scope="col"
-                    className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center">
-                      <span>Destination</span>
-                    </div>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="py-3.5 px-1.5 text-sm font-normal text-center rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center gap-x-1">
-                      <span>Current Fare(birr)</span>
-                    </div>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="py-3.5 px-1.5 text-sm font-normal text-center rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center gap-x-1">
-                      <span>Number of Seats</span>
-                    </div>
-                  </th>
-                  <th
-                    scope="col"
-                    className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center">
-                      <span>Status</span>
-                    </div>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center">
-                      <span>Date</span>
-                    </div>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                  >
-                    <div className="flex items-center">
-                      <span>Action</span>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-
-              
-              <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                {Array.isArray(rideRequests) &&
-                  rideRequests.map((rideRequest: any) => (
-                    <RideRequestItem
-                      key={rideRequest.id}
-                      id={rideRequest.id}
-                      name={rideRequest.name}
-                      user={rideRequest.user}
-                      origin={rideRequest.originAddress}
-                      destination={rideRequest.destinationAddress}
-                      currentFare={rideRequest.currentFare}
-                      status={rideRequest.status}
-                      numberOfSeats={rideRequest.numberOfSeats}
-                    />
-                  ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="flex w-full">
+          <ClipLoader color="indigo" className="mx-auto mt-24" size={40} />
         </div>
-      </div>
-    
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPages={11}
-      />
-      </div> ) 
-      :  (
-          <div className="flex flex-col gap-5 mt-16 items-center p-3">
-            <MdFilterAltOff size={100} className="text-gray-400" />
-            {skipFilter ? (
-              <div className="text-gray-500 text-lg text-center pb-16">
-                There are no Ride Requests
+      ) : error ? (
+        <UnknownError
+          refresh={skipPagination ? refetchFilter : refetchPagination}
+        />
+      ) : rideRequests.length > 0 ? (
+        <div>
+          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+              <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                  <thead className="bg-gray-50 dark:bg-gray-800">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-4 ml-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <span className="text-center">Commuter</span>
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-3 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center">
+                          <span>Origin</span>
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center">
+                          <span>Destination</span>
+                        </div>
+                      </th>
+
+                      <th
+                        scope="col"
+                        className="py-3.5 px-1.5 text-sm font-normal text-center rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center gap-x-1">
+                          <span>Current Fare(birr)</span>
+                        </div>
+                      </th>
+
+                      <th
+                        scope="col"
+                        className="py-3.5 px-1.5 text-sm font-normal text-center rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center gap-x-1">
+                          <span>Number of Seats</span>
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center">
+                          <span>Status</span>
+                        </div>
+                      </th>
+
+                      <th
+                        scope="col"
+                        className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center">
+                          <span>Date</span>
+                        </div>
+                      </th>
+
+                      <th
+                        scope="col"
+                        className="py-3.5 px-2 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
+                        <div className="flex items-center">
+                          <span>Action</span>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                    {Array.isArray(rideRequests) &&
+                      rideRequests.map((rideRequest: any) => (
+                        <RideRequestItem
+                          key={rideRequest.id}
+                          id={rideRequest.id}
+                          name={rideRequest.name}
+                          user={rideRequest.user}
+                          origin={rideRequest.originAddress}
+                          destination={rideRequest.destinationAddress}
+                          currentFare={rideRequest.currentFare}
+                          status={rideRequest.status}
+                          numberOfSeats={rideRequest.numberOfSeats}
+                        />
+                      ))}
+                  </tbody>
+                </table>
               </div>
-            ) : (
-              <div className="text-gray-500 text-lg text-center pb-16">
-                There are no matching results 
-              </div>
-            )}
+            </div>
           </div>
-)}
+          {pages && pages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={pages}
+            />
+          )}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-5 mt-16 items-center p-3">
+          <MdFilterAltOff size={100} className="text-gray-400" />
+          {skipFilter ? (
+            <div className="text-gray-500 text-lg text-center pb-16">
+              There are no Ride Requests
+            </div>
+          ) : (
+            <div className="text-gray-500 text-lg text-center pb-16">
+              There are no matching results
+            </div>
+          )}
+        </div>
+      )}
     </div>
-      
   );
 };
 

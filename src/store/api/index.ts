@@ -109,7 +109,7 @@ export const apiSlice = createApi({
       { pages: number; rideRequests: RideRequest[] },
       RideRequestFilter
     >({
-      query: ({ page, size, name, fare, origin, destination, status }) =>
+      query: ({ page, size, name, fare, status }) =>
         `RideRequest/Search?pageNumber=${page}&pageSize=${size}${
           name && "&name=" + name
         }${status && "&status=" + status}${fare && "&fare=" + fare}`,
