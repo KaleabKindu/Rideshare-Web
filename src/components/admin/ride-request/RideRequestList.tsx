@@ -174,8 +174,7 @@ const RideRequestList = () => {
                         <RideRequestItem
                           key={rideRequest.id}
                           id={rideRequest.id}
-                          name={rideRequest.name}
-                          user={rideRequest.user}
+                          name={rideRequest.user.fullName}
                           origin={rideRequest.originAddress}
                           destination={rideRequest.destinationAddress}
                           currentFare={rideRequest.currentFare}

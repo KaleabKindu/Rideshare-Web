@@ -7,7 +7,6 @@ import { getRequestStatus } from './Status';
 interface RideRequestProps {
   id: number 
   name:string
-  user: User,
   origin: string,
   destination: string,
   currentFare: number,
@@ -16,13 +15,13 @@ interface RideRequestProps {
 }
 
 
-const RideRequestItem: React.FC<RideRequestProps>= ({id, name, user, origin, destination, currentFare, status, numberOfSeats}) => {
+const RideRequestItem: React.FC<RideRequestProps>= ({id, name, origin, destination, currentFare, status, numberOfSeats}) => {
   const st = getRequestStatus(status)
   return (
     
       <tr>
                 <td className="px-3 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                       <h2 className="font-medium text-gray-800 dark:text-white">Kaleab Kindu</h2>
+                       <h2 className="font-medium text-gray-800 dark:text-white">{name}</h2>
     
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{origin}</td>
