@@ -1,18 +1,25 @@
-
+import { User } from "../Users"
 
 export type RideRequest = {
     RideRequestID: number 
     name:string
-    Commuter: string 
-    Origin: string
-    Destination: string
-    CurrentFare: number
-    Status: string
+    Commuter: User,
+    Origin: string,
+    Destination: string,
+    CurrentFare: number,
+    Status: number,
     NumberOfSeats: number
-    CreatedDateTime: string
 }
 
 
+export enum Status {WAITING, ONROUTE, COMPLETED, CANCELED}
 
-
-export enum Status {onroute, waiting, completed, canceled}
+export interface RideRequestFilter {
+    page:number,
+    size:number,
+    name?:string,
+    fare?:number,
+    origin?: string,
+    destination?: string,
+    status?:string | null,
+}
