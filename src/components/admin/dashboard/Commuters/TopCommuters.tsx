@@ -40,9 +40,9 @@ const TopCommuters = (props: TopCommutersProps) => {
       <div className="w-full h-72 space-y-5">
         {
           Array.from({length:4}).map((_, index) =>
-           <div className="flex items-center gap-5">
+           <div key={index} className="flex items-center gap-5">
             <div className="h-12 w-16 rounded-full bg-gray-200 animate-pulse"/>
-            <div key={index} className="bg-gray-200 animate-pulse rounded-lg w-full h-12"/>
+            <div className="bg-gray-200 animate-pulse rounded-lg w-full h-12"/>
            </div>)
           }
       </div>:
