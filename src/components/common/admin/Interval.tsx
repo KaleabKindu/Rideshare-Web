@@ -1,9 +1,10 @@
+import { Interval } from "@/types/stat";
 import React from "react";
 
 type IntervalFilterProps = {
   interval: string;
-  setYear: React.Dispatch<React.SetStateAction<string>>;
-  setMonth: React.Dispatch<React.SetStateAction<string>>;
+  setYear: React.Dispatch<React.SetStateAction<number>>;
+  setMonth: React.Dispatch<React.SetStateAction<number>>;
   setInterval: React.Dispatch<React.SetStateAction<string>>;
 };
 const months = [
@@ -35,10 +36,10 @@ const IntervalFilter = ({
             <select
               className="outline-none shadow-md border rounded-lg py-2 px-2"
               id="year"
-              onChange={(e) => setYear(e.target.value)}
-            >
-              <option value="2020">2022</option>
-              <option value="2023">2023</option>
+              onChange={(e) => setYear(parseInt(e.target.value))}
+            > 
+              <option value="2022">2022</option>
+              <option selected value="2023">2023</option>
             </select>
           </div>
         )}
@@ -48,7 +49,7 @@ const IntervalFilter = ({
             <select
               className="outline-none shadow-md border rounded-lg py-2 px-2"
               id="month"
-              onChange={(e) => setMonth(e.target.value)}
+              onChange={(e) => setMonth(parseInt(e.target.value))}
             >
               {months.map((month, index) => (
                 <option key={index} value={month.value}>

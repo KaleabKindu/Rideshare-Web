@@ -43,7 +43,7 @@ export const store = configureStore({
 });
 export const persistor = persistStore(store);
 
-setupListeners(store.dispatch);
+// setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
