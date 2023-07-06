@@ -34,7 +34,7 @@ const Card = ({
           className={`flex items-center text-green-500 text-red-500"`}
         >
             <MdArrowDropUp size={20} />
-          <div className="text-sm">{Item?.percentageChange}%</div>
+          <div className="text-sm">{Item?.percentageChange.toFixed()}%</div>
         </div>
       </div>
     </div>

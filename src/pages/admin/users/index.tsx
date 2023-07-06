@@ -9,9 +9,9 @@ import Pagination from "@/components/common/admin/Pagination";
 import SearchBar from "@/components/common/admin/SearchBar";
 import DropDown from "@/components/common/admin/DropDown";
 import { useFilterUsersQuery, useGetUsersQuery } from "@/store/api";
-import { ClipLoader } from "react-spinners";
 import UnknownError from "@/components/common/admin/UnknownError";
 import { FaUsersSlash } from "react-icons/fa";
+import UsersShimmer from "@/components/common/admin/shimmers/UsersShimmer";
 
 const routes =new Map([
   ["Commuter","/admin/users/commuter/"],
@@ -61,12 +61,12 @@ const Users = (props: UsersProps) => {
   );
 
   const users = filterResult?.users || paginationResult?.users || [];
-  const pages = filterResult?.pages || paginationResult?.pages;
+  const pages = filterResult?.pages || paginationResult?.pages
   const isLoading =
-    filterLoading || paginationLoading || filterFetching || paginationFetching;
+    filterLoading || paginationLoading 
   const error = filterError || paginationError;
   useEffect(() => {
-    if (role || status || query) {
+    if (role || status || query.length > 0) {
       setSkipPagination(true);
       setSkipFilter(false);
     } else {
@@ -103,9 +103,7 @@ const Users = (props: UsersProps) => {
           />
         </div>
         {isLoading ? (
-          <div className="flex w-full">
-            <ClipLoader color="indigo" className="mx-auto mt-24" size={40} />
-          </div>
+          <UsersShimmer/>
         ) : error ? (
           <UnknownError
             refresh={skipPagination ? refetchFilter : refetchPagination}

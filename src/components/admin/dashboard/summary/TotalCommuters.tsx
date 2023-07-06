@@ -7,10 +7,12 @@ import { PercentageChange } from '@/types/stat'
 type Props = {}
 
 const TotalCommuters = (props: Props) => {
-    const { data } = useGetTotalCommutersQuery()
+    const { data, isLoading } = useGetTotalCommutersQuery()
   return (
     <div>
-        <Card Icon={AiOutlineUser} Item={data as PercentageChange}/>
+        {isLoading ? 
+        <div className='w-52 h-44 rounded-lg shadow-lg bg-gray-200 animate-pulse' />
+        :<Card Icon={AiOutlineUser} Item={data as PercentageChange}/>}
     </div>
   )
 }

@@ -69,12 +69,12 @@ export const apiSlice = createApi({
     }),
     getCommutersStat: builder.query<VerticalBarChartData, TimeFrame>({
       query: ({ year, month, option }) =>
-        `Commuters/statistics?timeFrame=${option}${
+        `Commuter/commuter-count?option=${option}${
           year ? "&year=" + year : ""
         }${month ? "&month=" + month : ""}`,
       transformResponse(baseQueryReturnValue: any, meta, arg) {
         const [xAxisData, yAxisData] = getObjectKeysAndValues(
-          baseQueryReturnValue.value
+          baseQueryReturnValue.value.monthlyCounts
         );
         return {
           xAxisData: xAxisData as string[],
@@ -82,14 +82,17 @@ export const apiSlice = createApi({
         };
       },
     }),
-    getCommutersStatusStat: builder.query<number[], void>({
-      query: () => `Commuters/status`,
+    getCommutersStatusStat: builder.query<{ statuses: string[], count: number[]}, void>({
+      query: () => `Commuter/commuter-status`,
       transformResponse(baseQueryReturnValue: any, meta, arg) {
-        return baseQueryReturnValue.value;
+        const [statuses, count] = getObjectKeysAndValues(
+          baseQueryReturnValue.value
+        );
+        return { statuses: statuses as string[], count: count as number[] };
       },
     }),
     getTopCommuters: builder.query<number[], void>({
-      query: () => `Users/Top5Commuter`,
+      query: () => `User/Top5Commuter`,
       transformResponse(baseQueryReturnValue: any, meta, arg) {
         return baseQueryReturnValue.value;
       },
@@ -232,7 +235,7 @@ export const apiSlice = createApi({
     }),
     getRideRequestsStat: builder.query<VerticalBarChartData, TimeFrame>({
       query: ({ year, month, option }) =>
-        `RideRequest/statstics?type=${option}${
+        `RideRequest/Statstics?type=${option}${
           year ? "&year=" + year : ""
         }${month ? "&month=" + month : ""}`,
       transformResponse(baseQueryReturnValue: any, meta, arg) {

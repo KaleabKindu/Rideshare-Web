@@ -10,6 +10,7 @@ import { ClipLoader } from "react-spinners";
 import NoBarStatistics from "@/components/common/admin/NoBarChartStatistics";
 import DriverStatusAnalytics from "./DriverStatusAnalytics";
 import UnknownError from "@/components/common/admin/UnknownError";
+import VerticalBarShimmer from "@/components/common/admin/shimmers/VerticalBarShimmer";
 
 type DriverAndVehicleAnalyticsProps = {};
 
@@ -43,7 +44,7 @@ const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
     }
   );
 
-  const isLoading = (VehicleLoading && DriverLoading) || (VehicleFetching || DriverFetching)
+  const loading = VehicleLoading || DriverLoading || VehicleFetching || DriverFetching
   const driverNoData = DriverData?.yAxisData.reduce(
     (prev: number, cur: number) => prev + cur,
     0
@@ -67,14 +68,8 @@ const DriverAndVehicleAnalytics = (props: DriverAndVehicleAnalyticsProps) => {
             <div className="text-2xl font-semibold pl-8">
               Drivers and Vehicles Analytics
             </div>
-            {isLoading ? (
-              <div className="flex w-full h-96">
-                <ClipLoader
-                  color="indigo"
-                  className="mx-auto mt-24"
-                  size={40}
-                />
-              </div>
+            {loading ? (
+              <VerticalBarShimmer/>
             ) : (vehicleError && driverError) ? 
             <UnknownError refresh={()=> {
               refetchDriver()

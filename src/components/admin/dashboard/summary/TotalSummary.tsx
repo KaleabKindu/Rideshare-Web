@@ -17,10 +17,13 @@ const icons = new Map([
 ])
 
 const TotalCommuters = (props: Props) => {
-    const { data } = useGetTotalSummaryQuery()
+    const { data, isLoading } = useGetTotalSummaryQuery()
   return (
     <>
         {
+          isLoading ? 
+          Array.from({length:4}).map((_, index) => <div key={index} className='w-52 h-44 rounded-lg shadow-lg bg-gray-200 animate-pulse' />)
+          :
         data?.map((change, index) => <Card key={index} Icon={icons.get(change.name) as IconType} Item={change}/>)
         }
     </>

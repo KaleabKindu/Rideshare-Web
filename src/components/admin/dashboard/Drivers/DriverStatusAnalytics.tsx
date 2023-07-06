@@ -1,6 +1,8 @@
 import NoDoughnutChartStatistics from "@/components/common/admin/NoDoughnutChartStatistics";
 import UnknownError from "@/components/common/admin/UnknownError";
 import DoughnutChart from "@/components/common/admin/charts/Doughnut";
+import DoughnutShimmer from "@/components/common/admin/shimmers/DoughnutShimmert";
+import VerticalBarShimmer from "@/components/common/admin/shimmers/VerticalBarShimmer";
 import { useGetDriverStatusStatQuery } from "@/store/api";
 import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
@@ -11,6 +13,7 @@ const DriverStatusAnalytics = (props: Props) => {
   const {
     data,
     isLoading,
+    isFetching,
     isError,
     refetch
   } = useGetDriverStatusStatQuery();
@@ -28,17 +31,12 @@ const DriverStatusAnalytics = (props: Props) => {
     (prev: number, cur: number) => prev + cur,
     0
   ) === 0
+  const loading = isLoading || isFetching
   return (
     <div className="max-w-md lg:w-[40%] rounded-lg border p-5 space-y-5 bg-white shadow-lg">
       <div className="text-xl font-semibold w-fit">Current Drivers Status</div>
-      {isLoading ? 
-      <div className="flex w-full h-72">
-      <ClipLoader
-        color="indigo"
-        className="mx-auto mt-24"
-        size={40}
-      />
-    </div> :
+      {loading ? 
+      <DoughnutShimmer/> :
     isError ? 
         <UnknownError refresh={refetch} />
       :noData ?

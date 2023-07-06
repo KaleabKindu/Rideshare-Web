@@ -45,13 +45,7 @@ const OvertimeStatusAnalytics = ({
       <div className="border rounded-lg p-5 space-y-5 bg-white shadow-lg max-w-4xl">
         <div className="text-xl font-semibold">{name} Overtime Status Analysis </div>
         {loading ? 
-        <div className="flex w-full h-96">
-          <ClipLoader
-            color="indigo"
-            className="mx-auto mt-24"
-            size={40}
-          />
-        </div>
+        <div className="h-80 w-full bg-gray-200 animate-pulse rounded-lg shadow-lg"/>
         :error ? 
         <UnknownError refresh={refetch} />:
         noData ? 

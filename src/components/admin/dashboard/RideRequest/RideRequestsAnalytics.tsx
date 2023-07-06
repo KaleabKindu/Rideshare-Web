@@ -9,6 +9,7 @@ import RideRequestsStatusAnalytics from "./RideRequestsStatusAnalytics";
 import NoBarStatistics from "@/components/common/admin/NoBarChartStatistics";
 import { ClipLoader } from "react-spinners";
 import UnknownError from "@/components/common/admin/UnknownError";
+import VerticalBarShimmer from "@/components/common/admin/shimmers/VerticalBarShimmer";
 
 type RideRequestsAnalyticsProps = {};
 
@@ -29,7 +30,7 @@ const RideRequestsAnalytics = (props: RideRequestsAnalyticsProps) => {
     }
   )
   const noData = data?.yAxisData.reduce((prev,cur) => prev + cur, 0) === 0
-
+  const loading = isLoading || isFetching
   return (
     <div className="space-y-16">
       <div className="flex flex-wrap items-start gap-3">
@@ -44,14 +45,8 @@ const RideRequestsAnalytics = (props: RideRequestsAnalyticsProps) => {
             <div className="text-2xl font-semibold pl-8">
               Ride Requests Analytics
             </div>
-            {(isLoading || isFetching) ? (
-              <div className="flex w-full h-96">
-                <ClipLoader
-                  color="indigo"
-                  className="mx-auto mt-24"
-                  size={40}
-                />
-              </div>
+            {loading ? (
+              <VerticalBarShimmer/>
             ): isError ? 
             <UnknownError refresh={refetch}/>
              :noData ? (

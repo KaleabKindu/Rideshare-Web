@@ -9,6 +9,7 @@ import { getShortMonthNames, getWeekNames } from "@/utils";
 import NoBarStatistics from "@/components/common/admin/NoBarChartStatistics";
 import { ClipLoader } from "react-spinners";
 import UnknownError from "@/components/common/admin/UnknownError";
+import VerticalBarShimmer from "@/components/common/admin/shimmers/VerticalBarShimmer";
 
 type CommutersAnalyticsProps = {};
 
@@ -20,6 +21,7 @@ const CommutersAnalytics = (props: CommutersAnalyticsProps) => {
   const {
     data,
     isLoading,
+    isFetching,
     isError,
     refetch
   } = useGetCommutersStatQuery(
@@ -31,7 +33,10 @@ const CommutersAnalytics = (props: CommutersAnalyticsProps) => {
   const noData = data?.yAxisData.reduce(
     (prev: number, cur: number) => prev + cur,
     0
-  ) !== 0
+  ) === 0
+  const chartData = data?.yAxisData || []
+  const labels = data?.xAxisData || []
+  const loading = isLoading || isFetching
   return (
     <div className="flex flex-wrap items-start gap-3">
       <div className="w-full space-y-3 lg:w-[60%]">
@@ -43,14 +48,8 @@ const CommutersAnalytics = (props: CommutersAnalyticsProps) => {
         />
         <div className="space-y-5 rounded-lg border p-8 bg-white shadow-lg max-w-4xl">
           <div className="text-2xl font-semibold pl-8">Commuter Analytics</div>
-          {isLoading ? (
-              <div className="flex w-full h-96">
-                <ClipLoader
-                  color="indigo"
-                  className="mx-auto mt-24"
-                  size={40}
-                />
-              </div>
+          {loading ? (
+              <VerticalBarShimmer />
             ) : isError ?
               <UnknownError refresh={refetch}/>
              :noData ? (
@@ -59,10 +58,10 @@ const CommutersAnalytics = (props: CommutersAnalyticsProps) => {
             <BarChart
             borderRadius={10}
             showLegends={true}
-            chartData={data.yAxisData}
+            chartData={chartData}
             name="Commuters"
             color="rgba(53, 162, 235, 0.5)"
-            labels={data.xAxisData}
+            labels={labels}
           />}
         </div>
       </div>

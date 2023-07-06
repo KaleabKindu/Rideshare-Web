@@ -31,18 +31,21 @@ const Driver = ({topDriver}: DriverProps) => {
 type TopDriversProps = {};
 
 const TopDrivers = (props: TopDriversProps) => {
-  const {data, isLoading,isError, refetch} = useGetTopDriversQuery()
+  const {data, isLoading, isFetching, isError, refetch} = useGetTopDriversQuery()
+  const loading = isLoading || isFetching
   return (
     <div className="border rounded-lg p-5 space-y-5 max-w-xl w-full lg:w-[40%] bg-white shadow-lg">
       <div className="font-semibold text-xl">Top Drivers</div>
-      {isLoading ? 
-      <div className="flex w-full h-72">
-        <ClipLoader
-          color="indigo"
-          className="mx-auto mt-24"
-          size={40}
-        />
-      </div>:
+      {loading ? 
+      <div className="w-full h-72 space-y-5">
+      {
+        Array.from({length:4}).map((_, index) =>
+         <div className="flex items-center gap-5">
+          <div className="h-12 w-16 rounded-full bg-gray-200 animate-pulse"/>
+          <div key={index} className="bg-gray-200 animate-pulse rounded-lg w-full h-12"/>
+         </div>)
+        }
+    </div>:
       isError ? 
       <UnknownError refresh={refetch}/>
       :data && data.length > 0 ?
