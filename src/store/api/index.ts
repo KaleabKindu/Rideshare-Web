@@ -4,6 +4,7 @@ import { Credentials, LoginResponse } from "@/types/auth";
 import { Driver } from "@/types/driver";
 import { User, UsersFilter } from "@/types/Users";
 import { FeedBack } from "@/types/commuter";
+import { Offer, OffersFilter } from "@/types/ride-offers";
 import {
   PercentageChange,
   TimeFrame,
@@ -183,6 +184,20 @@ export const apiSlice = createApi({
         };
       },
     }),
+    searchRideOffers: builder.query<{ pages: number; offers: Offer[] }, OffersFilter>({
+      query: ({ page, size, query, status, phone, MinCost,MaxCost }) =>
+        `RideOffers/Search?PageNumber=${page}&PageSize=${size}${query && "&DriverName=" + query}${status && "&Status=" + status}${MinCost && "&MinCost=" + MinCost}${MaxCost && "&MaxCost=" + MaxCost}${
+          phone && "&PhoneNumber=" + phone}`,
+      transformResponse(baseQueryReturnValue: any, meta, arg) {
+        return {
+          pages: Math.ceil(
+            baseQueryReturnValue.value.count /
+              baseQueryReturnValue.value.pageSize
+          ),
+          offers: baseQueryReturnValue.value.paginated,
+        };
+      },
+    }),
     getRideOfferStat: builder.query<VerticalBarChartData, TimeFrame>({
       query: ({ year, month, option }) =>
         `RideOffers/Statistics?options=${option}${
@@ -293,6 +308,7 @@ export const {
   useAdminLoginMutation,
   useGetCommutersStatQuery,
   useGetCommutersStatusStatQuery,
+  useSearchRideOffersQuery,
   useGetRideRequestsStatusCountQuery,
   useGetDriverStatQuery,
   useGetDriverStatusStatQuery,
